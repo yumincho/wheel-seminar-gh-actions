@@ -1,4 +1,4 @@
-name: CI
+name: wheel-seminar-CI
 
 on:
   push:
