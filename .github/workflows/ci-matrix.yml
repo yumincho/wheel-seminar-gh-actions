@@ -9,11 +9,13 @@ on:
 jobs:
   ci:
     name: CI
-    runs-on: ubuntu-latest
 
     strategy:
       matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
         node-version: [16, 18, 20]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout this repository
