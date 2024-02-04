@@ -1,4 +1,4 @@
-name: cd
+name: wheel-seminar-CD
 
 on:
   push:
@@ -6,9 +6,9 @@ on:
       - main
 
 jobs:
-  build-docker-container:
+  cd:
+    name: Deploy to Docker Hub
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
