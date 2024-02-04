@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: andyye03/wheel-semimar-cicd:${{ github.sha }}
+          tags: andyye03/wheel-semimar-cicd:${{ github.sha }}, andyye03/wheel-semimar-cicd:latest
