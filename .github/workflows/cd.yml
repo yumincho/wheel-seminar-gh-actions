@@ -7,7 +7,11 @@ on:
 
 jobs:
   cd:
-    name: Deploy to Docker Hub
+    strategy:
+      matrix:
+        platform: [linux/amd64, linux/arm64]
+
+    name: Deploy to Docker Hub with ${{ matrix.platform }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -30,4 +34,4 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/wheel-seminar-cicd:${{ github.sha }}, ${{ secrets.DOCKERHUB_USERNAME }}/wheel-seminar-cicd:latest
-          platforms: linux/amd64, linux/arm64
+          platforms: ${{ matrix.platform }}
