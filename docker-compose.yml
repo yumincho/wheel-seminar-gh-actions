@@ -1,0 +1,13 @@
+version: "3"
+services:
+  wheel-seminar-server:
+    image: yumyumin/wheel-seminar-cicd
+    container_name: wheel-seminar-server
+    ports:
+      - "8080:8080"
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 10 wheel-serminar-server
